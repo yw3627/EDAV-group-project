@@ -1,1 +1,38 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Data transformation
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+1. All the variables in the dataset.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+vgsales = read_csv("vgsales-12-4-2019.csv")
+View(vgsales)
+colnames(vgsales)
+```
+
+
+
+
+2. .......
+
+"Platform"  "Global_Sales"   "NA_Sales"   "PAL_Sales"     "JP_Sales"   "Other_Sales"  "Year" 
+
+```{r}
+q1 = vgsales[,c("Platform","Global_Sales" , "NA_Sales"    , "PAL_Sales" , "JP_Sales" ,"Other_Sales","Year" )]
+#View(q1)
+levels(factor(q1$Platform))
+```
+
+
+- ....
+
+
+
+
