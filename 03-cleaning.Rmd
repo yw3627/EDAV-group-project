@@ -9,21 +9,30 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-1. All the variables in the dataset.
+## All the variables in the dataset
+These are the avalible variables from the dataset.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 vgsales = read_csv("vgsales-12-4-2019.csv")
-View(vgsales)
 colnames(vgsales)
+
+#library(DT)
+#datatable(vgsales)
 ```
 
 
 
 
-2. .......
+## Extracting Specifc Variables for Each Question
 
-"Platform"  "Global_Sales"   "NA_Sales"   "PAL_Sales"     "JP_Sales"   "Other_Sales"  "Year" 
+We are extracting variables that help us to better understand and answer the three questions seperately. 
 
+### Extraced Dataset for Question 1
+
+In order to explore the impact of the platform to the video games and the trend over time, we are creating a dataframe that contains varibles "Platform"  "Global_Sales"   "NA_Sales"   "PAL_Sales"  "JP_Sales"   "Other_Sales" ,and "Year" .
+
+
+These are the platforms that release video games.
 ```{r}
 q1 = vgsales[,c("Platform","Global_Sales" , "NA_Sales"    , "PAL_Sales" , "JP_Sales" ,"Other_Sales","Year" )]
 #View(q1)
@@ -31,7 +40,10 @@ levels(factor(q1$Platform))
 ```
 
 
-- ....
+### Extraced Dataset for Question 2
+
+
+### Extraced Dataset for Question 3
 
 
 
