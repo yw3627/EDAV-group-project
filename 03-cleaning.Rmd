@@ -1,7 +1,7 @@
 ---
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 # Data transformation
 
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 vgsales = read_csv("vgsales-12-4-2019.csv")
-#View(vgsales)
+View(vgsales)
 colnames(vgsales)
 ```
 
