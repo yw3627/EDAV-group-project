@@ -2,6 +2,7 @@
 title: "YOUR TITLE HERE"
 author: "Jerry Xia, Siqi Chen,Yaoling Wang"
 date: "`r Sys.Date()`"
+output: pdf_document
 site: bookdown::bookdown_site
 ---
 
@@ -13,6 +14,6 @@ Which platform contributes most to the video games? Is there any change over tim
 
 What are the critics' preference and users' preference? How are they different? To help players obtain a comprehensive review on video games, data source provides critics’ scores and users’ scores. From these two columns, we could sort the most popular genres among critics and general players based on a standardized scoring scale (out of ten), and study what the influential factors are. 
 
-What are the top 5 popular video games and genres in North America and Japan? Is there any difference? we can use histograms,stacked bar charts, or tree maps to compare the sales of different genres in different regions. In addition, there are plentiful external factors affects their sales, such as cultures, social preferences, personal interests or the local restrictions.
+What are the top 5 popular video games and genres in North America and Japan? Is there any difference? we can use histograms,stacked bar charts, or tree maps to compare the sales of different genres in different regions. 
 
 
