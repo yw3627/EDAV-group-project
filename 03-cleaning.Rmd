@@ -22,7 +22,7 @@ datatable(head(vgsales,20),rownames = FALSE)
 
 We are extracting variables that help us to better understand and answer the three questions seperately. 
 
-### Extraced Dataset for Question 1
+### Extracted Dataset for Question 1
 
 In order to explore the impact of the platform to the video games and the trend over time, we are creating a dataframe that contains varibles "Platform"  "Global_Sales"   "NA_Sales"   "PAL_Sales"  "JP_Sales"   "Other_Sales" ,and "Year" .
 ```{r}
@@ -36,10 +36,10 @@ levels(factor(dataset1$Platform))
 ```
 
 
-### Extraced Dataset for Question 2
+### Extracted Dataset for Question 2
 
 
-### Extraced Dataset for Question 3
+### Extracted Dataset for Question 3
 
 We want to find out the popularities among different genres worldwildly and compare the sales in different regions. Then we need to include varibles "Genre" "Global_Sales" "PAL_Sales" "NA_Sales",and "JP_Sales".
 ```{r}
