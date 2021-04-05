@@ -5,10 +5,6 @@ output:
 ---
 # Data transformation
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-DT::renderDataTable({DT::datatable(data(), options=list(scrollX=TRUE))})
-```
 
 ## Brief View of the Dataset
 There is a brief view of the first 20 rows of the dataset.
@@ -50,4 +46,4 @@ We want to find out the popularities among different genres worldwildly and comp
 dataset3 = vgsales[ ,c("Genre", "Global_Sales","NA_Sales", "JP_Sales","PAL_Sales")]
 ```
 
-We could use the global sales to compare the popularity of genres. Then compare the regional sales for different genres using
+We could use the global sales to compare the popularity of genres. Then compare the regional sales for different genres using stacked bar charts or interactive plot.

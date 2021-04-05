@@ -1,1 +1,47 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Missing values
+
+## Missing data Count
+We can see the total number of NAs in each column for each dataset:
+```{r}
+colSums(is.na(dataset1))
+#colSums(is.na(dataset2))
+colSums(is.na(dataset3))
+```
+
+## Visualizing Missing data in dataset1
+```{r}
+extracat::visna(dataset1,sort = "r")
+```
+
+
+## Visualizing Missing data in dataset2
+```{r}
+#extracat::visna(dataset2,sort = "r")
+```
+
+
+## Visualizing Missing data in dataset3
+```{r}
+extracat::visna(dataset3,sort = "r")
+```
+
+## Deleting NAs
+The rows shows a missing pattern and the columns represent the column level missing values. Here we can find out that our data has losts of missing values in three datasets.
+
+We use na.omit to delete rows with missing values and check with is.na()
+```{r}
+dataset1 = na.omit(dataset1)
+sum(is.na(dataset1))
+
+#dataset2 = na.omit(dataset2)
+#sum(is.na(dataset2))
+
+dataset3 = na.omit(dataset3)
+sum(is.na(dataset3))
+```
+
