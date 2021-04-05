@@ -7,7 +7,7 @@ output:
 
 
 ## Brief View of the Dataset
-There is a brief view of the first 20 rows of the dataset.
+Here is a brief view of the first 20 rows of the dataset.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 library(DT)
@@ -15,35 +15,19 @@ vgsales = read_csv("vgsales-12-4-2019.csv")
 datatable(head(vgsales,20),rownames = FALSE)
 ```
 
-
-
-
-## Extracting Specifc Variables for Each Question
-
-We are extracting variables that help us to better understand and answer the three questions seperately. 
-
-### Extracted Dataset for Question 1
-
-In order to explore the impact of the platform to the video games and the trend over time, we are creating a dataframe that contains varibles "Platform"  "Global_Sales"   "NA_Sales"   "PAL_Sales"  "JP_Sales"   "Other_Sales" ,and "Year" .
+Let us also take a view at all variables of the data.
 ```{r}
-dataset1 = vgsales[,c("Platform","Global_Sales" , "NA_Sales"    , "PAL_Sales" , "JP_Sales" ,"Other_Sales","Year" )]
+colnames(vgsales)
+```
+
+Obviously, there are variables that contribute nothing to our investigation of main questions. Now we decide to remove useless variables and focus on the updated dataset. Here is what the updated dataset looks like.
+
+```{r}
+dataset = vgsales[,c("Rank","Name","Genre","Platform","Publisher","Critic_Score","User_Score","Global_Sales","NA_Sales","PAL_Sales","JP_Sales","Other_Sales","Year")]
+head(dataset)
 ```
 
 
-These are the platforms that release video games.
-```{r}
-levels(factor(dataset1$Platform))
-```
 
 
-### Extracted Dataset for Question 2
 
-
-### Extracted Dataset for Question 3
-
-We want to find out the popularities among different genres worldwildly and compare the sales in different regions. Then we need to include varibles "Genre" "Global_Sales" "PAL_Sales" "NA_Sales",and "JP_Sales".
-```{r}
-dataset3 = vgsales[ ,c("Genre", "Global_Sales","NA_Sales", "JP_Sales","PAL_Sales")]
-```
-
-We could use the global sales to compare the popularity of genres. Then compare the regional sales for different genres using stacked bar charts or interactive plot.
