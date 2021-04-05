@@ -1,24 +1,22 @@
 ---
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 # Data transformation
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+DT::renderDataTable({DT::datatable(data(), options=list(scrollX=TRUE))})
 ```
 
-## All the variables in the dataset
-These are the avalible variables from the dataset.
+## Brief View of the Dataset
+There is a brief view of the first 20 rows of the dataset.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
+library(DT)
 vgsales = read_csv("vgsales-12-4-2019.csv")
-#View(vgsales)
-colnames(vgsales)
-
-#library(DT)
-#datatable(vgsales)
+datatable(head(vgsales,20))
 ```
 
 
@@ -31,13 +29,14 @@ We are extracting variables that help us to better understand and answer the thr
 ### Extraced Dataset for Question 1
 
 In order to explore the impact of the platform to the video games and the trend over time, we are creating a dataframe that contains varibles "Platform"  "Global_Sales"   "NA_Sales"   "PAL_Sales"  "JP_Sales"   "Other_Sales" ,and "Year" .
+```{r}
+dataset1 = vgsales[,c("Platform","Global_Sales" , "NA_Sales"    , "PAL_Sales" , "JP_Sales" ,"Other_Sales","Year" )]
+```
 
 
 These are the platforms that release video games.
 ```{r}
-q1 = vgsales[,c("Platform","Global_Sales" , "NA_Sales"    , "PAL_Sales" , "JP_Sales" ,"Other_Sales","Year" )]
-#View(q1)
-levels(factor(q1$Platform))
+levels(factor(dataset1$Platform))
 ```
 
 
@@ -46,6 +45,7 @@ levels(factor(q1$Platform))
 
 ### Extraced Dataset for Question 3
 
-
-
-
+We want to compare the top five popular video games and genres in North America and Japan. Then we need to include varibles "Name" "Genre" "Global_Sales","JP_Sales".
+```{r}
+dataset3 = vgsales[ ,c("Name", "Genre", "Global_Sales", "JP_Sales")]
+```
