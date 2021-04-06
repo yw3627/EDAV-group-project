@@ -1,1 +1,61 @@
 # Results
+
+
+## Comparing the Competitiveness of Publishers & Platforms
+
+Here is a plot of Platforms and their global sales amount.
+```{r}
+library(tidyverse)
+
+ggplot(dataset,aes(x=reorder(Platform,-Global_Sales,FUN = sum),y=Global_Sales)) + 
+  geom_col()  +
+  labs(title = "Total Sales for Each Platform",x="Platform",y="Sales")
+
+```
+
+We can see that PS3 and X360 are the top 2 platforms that alomost dominated the market. However, is it the case 5 years ago? or even longer before? 
+
+```{r}
+nr = nrow(dataset)
+y = rep(NA,nr)
+for (i in 1:nr){
+  if (dataset$Year[i]>= 1996 & dataset$Year[i]<=2003){
+    y[i] = "1997-2003"
+  } else if (dataset$Year[i] >=2004 & dataset$Year[i] <= 2008){
+    y[i] = "2003-2008"
+  } else if(dataset$Year[i] >= 2009 & dataset$Year[i] <=2013){
+    y[i] = "2009-2013"
+  } else{
+    y[i] = "2014-2018"
+  }
+}
+dataset = cbind(dataset,y)
+
+ggplot(dataset,aes(x=reorder(Platform,-Global_Sales,FUN = sum),y=Global_Sales)) + 
+  geom_col()  + facet_wrap(~y) +
+  labs(title = "Total Sales for Each Platform by Year",x="Platform",y="Sales")
+```
+
+We can see from this plot that before 2003, the market of video games was not as large as it is right now. PS2 and PS were the only two platforms back then. From 2003 to 2013, PS3 was the most popular platform with X360 following right behind. Games from these two platforms were booming in theose years and they almost took up the entire market at the time. After 2013, platforms like XOne, PS4 and NS began to produce new games and earned fair amount of sales. Their data could potentially go higher as the sales amount was only the number from the release year to 2018. Since there was no record of the sales of PS3 and X360 games after 2013, XOne, PS4, and NS are the emerging platforms that might outperform PS3 and X360 in the future.
+
+
+
+Now let us take a look at how many publishers are in our dataset.
+```{r}
+levels(factor(dataset$Publisher))
+```
+
+We are definitely not interested in every one of them, so We picked the top 5 video game publishers by their Global sales amount.
+
+```{r}
+g1 <- dataset %>% 
+  group_by(Publisher) %>%
+  summarize(Global_Sales = sum(Global_Sales)) %>%
+  top_n(5) %>%
+  ggplot(aes(x=reorder(Publisher,-Global_Sales),y=Global_Sales)) +
+  geom_col() +
+  labs(title = "Total 5 Video Game Publishers",x="Publisher",y="Sales")
+g1
+```
+
+Just by looking at the sales amount, the 5 most competitive publishers are Sony Computer Entertainment, Activision, Rockstar Games, Capcom and Ubisoft.
