@@ -16,7 +16,9 @@ colSums(is.na(dataset))
 extracat::visna(dataset,sort = "b")
 ```
 
-The blue represents missing values. The rows show a missing pattern and the columns represent the column level missing values. We can find out that there is a substaintial amount of data missing values for user score, critic score, and sales for all regions.
+The blue represents missing values. The rows show a missing pattern and the columns represent the column level missing values. 
+
+We can find out that the column "rank","name","genre","platform", and "publisher" do not have missing values at all.However, there is a substaintial amount of data missing values for user score, critic score, and sales for all regions. In addition, the column "user score" has most missing values compared to other variables. 
 
 ## Deleting NAs
 
