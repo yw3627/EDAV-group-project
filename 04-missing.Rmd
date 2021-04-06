@@ -6,7 +6,7 @@ output:
 # Missing values
 
 ## Missing data Count
-We can see the total number of NAs in each column for each dataset:
+We can see the total number of NAs in each column for the dataset:
 ```{r}
 colSums(is.na(dataset))
 ```
